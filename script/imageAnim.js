@@ -55,11 +55,20 @@
 
 	function resetPuzzlePieces() {
 		// empty the thumbnail container
+		dropZones.style.backgroundColor = 'red';
 		piecesBoard.innerHTML = " ";
 		createPuzzlePieces(this.dataset.puzzleref);
+
+	}
+
+	function resetPuzzleBoard() {
+		// empty the puzzleBoard container
+
+		
 	}
 
 	// event handling down here
+	puzzleSelectors.forEach(puzzle => puzzle.addEventListener("click", resetPuzzleBoard));
 	puzzleSelectors.forEach(puzzle => puzzle.addEventListener("click", resetPuzzlePieces));
 	createPuzzlePieces(0);
 
