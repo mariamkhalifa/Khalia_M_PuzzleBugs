@@ -64,7 +64,7 @@
 	function resetPuzzleBoard() {
 		// empty the puzzleBoard container
 		dropZones.forEach(zone => {
-			zone.innerHTML = " ";
+			zone.innerHTML = null;
 		});
 		
 	}
