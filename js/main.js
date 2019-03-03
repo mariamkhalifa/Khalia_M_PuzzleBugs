@@ -39,31 +39,33 @@
 
 	//handle drag over and drop
 	dropZones.forEach(zone => {
-		zone.addEventListener("dragover", function(e) {
-			e.preventDefault();
-			console.log("you dragged over me!");
-		});
+			zone.addEventListener("dragover", function(e) {
+				e.preventDefault();
+				console.log("you dragged over me!");
+			});
 
-		zone.addEventListener("drop", function(e) {
-			e.preventDefault();
-			console.log("you dropped sumpin on me");
+			zone.addEventListener("drop", function(e) {
+				e.preventDefault();
+				console.log("you dropped sumpin on me");
 
-			let peice = e.dataTransfer.getData("text/plain");
-			e.target.appendChild(document.querySelector(`#${peice}`));
-		});
+				let piece = e.dataTransfer.getData("text/plain");
+				e.target.appendChild(document.querySelector(`#${piece}`));
+		
+			});
 	})
 
 	function resetPuzzlePieces() {
 		// empty the thumbnail container
-		dropZones.style.backgroundColor = 'red';
 		piecesBoard.innerHTML = " ";
 		createPuzzlePieces(this.dataset.puzzleref);
-
+		
 	}
 
 	function resetPuzzleBoard() {
 		// empty the puzzleBoard container
-
+		dropZones.forEach(zone => {
+			zone.innerHTML = " ";
+		});
 		
 	}
 
