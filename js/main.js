@@ -44,14 +44,19 @@
 				console.log("you dragged over me!");
 			});
 
-			zone.addEventListener("drop", function(e) {
-				e.preventDefault();
-				console.log("you dropped sumpin on me");
+			
+				zone.addEventListener("drop", function(e) {
+					if (zone.firstChild == null) {
+						e.preventDefault();
+						console.log("you dropped sumpin on me");
 
-				let piece = e.dataTransfer.getData("text/plain");
-				e.target.appendChild(document.querySelector(`#${piece}`));
-		
-			});
+						let piece = e.dataTransfer.getData("text/plain");
+						e.target.appendChild(document.querySelector(`#${piece}`));
+					}
+					else {return false;}
+				});
+			
+			
 	})
 
 	function resetPuzzlePieces() {
